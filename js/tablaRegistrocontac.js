@@ -23,13 +23,24 @@ function addinformcion(pNOMBRE,pApellido,ppais,pedad,psexo,pnaci,pcivil,pdirecci
     };
     console.log(newregistro);
     informacion.push(newregistro);
+    localStorageinfor(informacion)
 }
+
 function obtenertabla2(){
+    var stora=localStorage.getItem('localStorageinfor');
+    if(stora==null){
+        informacion=[];
+    }else{
+        informacion=JSON.parse(stora);
+    }
     return informacion;
    
 
 }
+function localStorageinfor(plist){
+    localStorage.setItem('localStorageinfor',JSON.stringify(plist));
 
+}
 
 
 
